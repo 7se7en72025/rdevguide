@@ -10,27 +10,21 @@ Whenever possible use a fresh package library for testing, even better would be 
 
 A free Windows 10 virtual machine is provided by Microsoft (with a 90-day limit) for building, testing, and checking R packages and R itself. Package maintainers who work on Linux and MacOS can use it to test their packages on Windows. Read the [instructions](https://svn.r-project.org/R-dev-web/trunk/WindowsBuilds/winutf8/ucrt3/vm.html) on how to automatically set up the machine to check R packages. Tomas Kalibera describes the details of using virtual machine in the blog [Virtual Windows machine for checking R packages](https://blog.r-project.org/2021/03/18/virtual-windows-machine-for-checking-r-packages/index.html). 
 
-## Installing and Switching Pre-release R Versions
+## Installing and switching pre-release R versions
 
-A user-friendly way to manage and install R versions, including the pre-release (alpha) version, is by using the rig tool.
-
-To install the latest development version of R (often called R-next):
+With [rig](https://rig.r-lib.org/reference/add.html) installed, use the following
+command to install the build for the next R release. During a release cycle this
+can be an alpha, beta or release candidate. Between release cycles it is R-patched.
 
 ```bash
 rig add next
 ```
 
-You can run this version directly in your terminal using the alias:
+Start that installation in a terminal with `R-next`. For the ongoing development
+branch, use `rig add devel` and start it with `R-devel`.
 
-```bash 
-R-next
-```
-
-Alternatively, you can switch it to be the default R version on your system:
-
-```bash
-rig default R-next
-```
+To change which installation the plain `R` command starts, run `rig list` and
+pass the installed version's name to [`rig default`](https://rig.r-lib.org/reference/default.html).
 
 ## What can you test?
 
